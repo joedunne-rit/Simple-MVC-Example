@@ -13,7 +13,7 @@ console.log(lastAdded);
 
 const hostIndex = (req, res) => {
   res.render('index', {
-    currentName: 'Placeholder',
+    currentName: lastAdded.name,
     title: 'Home',
     pageName: 'Home Page'
   });
@@ -43,7 +43,7 @@ const getName = (req, res) => {
 
 const setName = async (req, res) => {
   if (!req.body.firstname || !req.body.lastname || !req.body.beds) {
-    return res.status(400).json({ error: 'firstname,lastname and beds are all required' });
+    return res.status(400).json({ error: 'firstname, lastname and beds are all required' });
   }
   
   const catData = {
